@@ -1,0 +1,830 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Inloggning">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="foretag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="losen" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InloggningResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InloggningResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SkickaEpost">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="to" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="from" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="text" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SkickaEpostResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SkickaEpostResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HelloUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="foretag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="losen" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HelloUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTV">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="foretagsid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTVResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getTVResult" type="tns:ArrayOfTVrader" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTVrader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TVrader" nillable="true" type="tns:TVrader" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TVrader">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ForetagsID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Foretag" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="info" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="grupp" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gruppnamn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="tag" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Video" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Datum" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getGrupper">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="foretagsid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGrupperResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getGrupperResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="nyBlackTV">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ForetagsID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="info" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="grupp" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tag" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="video" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Datum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="nyBlackTVResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nyBlackTVResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBlackTV">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ForetagsID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="info" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="grupp" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tag" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="video" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Datum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBlackTVResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateBlackTVResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RaderaBlackTV">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RaderaBlackTVResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RaderaBlackTVResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RaderaGrupp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RaderaGruppResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RaderaGruppResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NyGrupp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ForetagsID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="info" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Grupp" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NyGruppResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NyGruppResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditGrupp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ForetagsID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="info" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Grupp" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditGruppResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EditGruppResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTVjson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ftgid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="grupp" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Datum" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTVjsonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getTVjsonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="uppdateraKontakt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Foretag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="losenord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Adress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="postnr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ort" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="epost" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="kontaktperson" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="uppdateraKontaktResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="uppdateraKontaktResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getKontakt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getKontaktResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getKontaktResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getShowBlackTv">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ftgid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="grupp" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getShowBlackTvResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getShowBlackTvResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loggaIn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loggaInResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loggaInResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGrupper10">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="foretagsid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGrupper10Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getGrupper10Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getShowBlackTvWEB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ftgid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getShowBlackTvWEBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getShowBlackTvWEBResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="InloggningSoapIn">
+    <wsdl:part name="parameters" element="tns:Inloggning" />
+  </wsdl:message>
+  <wsdl:message name="InloggningSoapOut">
+    <wsdl:part name="parameters" element="tns:InloggningResponse" />
+  </wsdl:message>
+  <wsdl:message name="SkickaEpostSoapIn">
+    <wsdl:part name="parameters" element="tns:SkickaEpost" />
+  </wsdl:message>
+  <wsdl:message name="SkickaEpostSoapOut">
+    <wsdl:part name="parameters" element="tns:SkickaEpostResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloUserSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloUser" />
+  </wsdl:message>
+  <wsdl:message name="HelloUserSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTVSoapIn">
+    <wsdl:part name="parameters" element="tns:getTV" />
+  </wsdl:message>
+  <wsdl:message name="getTVSoapOut">
+    <wsdl:part name="parameters" element="tns:getTVResponse" />
+  </wsdl:message>
+  <wsdl:message name="getGrupperSoapIn">
+    <wsdl:part name="parameters" element="tns:getGrupper" />
+  </wsdl:message>
+  <wsdl:message name="getGrupperSoapOut">
+    <wsdl:part name="parameters" element="tns:getGrupperResponse" />
+  </wsdl:message>
+  <wsdl:message name="nyBlackTVSoapIn">
+    <wsdl:part name="parameters" element="tns:nyBlackTV" />
+  </wsdl:message>
+  <wsdl:message name="nyBlackTVSoapOut">
+    <wsdl:part name="parameters" element="tns:nyBlackTVResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBlackTVSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateBlackTV" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBlackTVSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateBlackTVResponse" />
+  </wsdl:message>
+  <wsdl:message name="RaderaBlackTVSoapIn">
+    <wsdl:part name="parameters" element="tns:RaderaBlackTV" />
+  </wsdl:message>
+  <wsdl:message name="RaderaBlackTVSoapOut">
+    <wsdl:part name="parameters" element="tns:RaderaBlackTVResponse" />
+  </wsdl:message>
+  <wsdl:message name="RaderaGruppSoapIn">
+    <wsdl:part name="parameters" element="tns:RaderaGrupp" />
+  </wsdl:message>
+  <wsdl:message name="RaderaGruppSoapOut">
+    <wsdl:part name="parameters" element="tns:RaderaGruppResponse" />
+  </wsdl:message>
+  <wsdl:message name="NyGruppSoapIn">
+    <wsdl:part name="parameters" element="tns:NyGrupp" />
+  </wsdl:message>
+  <wsdl:message name="NyGruppSoapOut">
+    <wsdl:part name="parameters" element="tns:NyGruppResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditGruppSoapIn">
+    <wsdl:part name="parameters" element="tns:EditGrupp" />
+  </wsdl:message>
+  <wsdl:message name="EditGruppSoapOut">
+    <wsdl:part name="parameters" element="tns:EditGruppResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTVjsonSoapIn">
+    <wsdl:part name="parameters" element="tns:getTVjson" />
+  </wsdl:message>
+  <wsdl:message name="getTVjsonSoapOut">
+    <wsdl:part name="parameters" element="tns:getTVjsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="uppdateraKontaktSoapIn">
+    <wsdl:part name="parameters" element="tns:uppdateraKontakt" />
+  </wsdl:message>
+  <wsdl:message name="uppdateraKontaktSoapOut">
+    <wsdl:part name="parameters" element="tns:uppdateraKontaktResponse" />
+  </wsdl:message>
+  <wsdl:message name="getKontaktSoapIn">
+    <wsdl:part name="parameters" element="tns:getKontakt" />
+  </wsdl:message>
+  <wsdl:message name="getKontaktSoapOut">
+    <wsdl:part name="parameters" element="tns:getKontaktResponse" />
+  </wsdl:message>
+  <wsdl:message name="getShowBlackTvSoapIn">
+    <wsdl:part name="parameters" element="tns:getShowBlackTv" />
+  </wsdl:message>
+  <wsdl:message name="getShowBlackTvSoapOut">
+    <wsdl:part name="parameters" element="tns:getShowBlackTvResponse" />
+  </wsdl:message>
+  <wsdl:message name="loggaInSoapIn">
+    <wsdl:part name="parameters" element="tns:loggaIn" />
+  </wsdl:message>
+  <wsdl:message name="loggaInSoapOut">
+    <wsdl:part name="parameters" element="tns:loggaInResponse" />
+  </wsdl:message>
+  <wsdl:message name="getGrupper10SoapIn">
+    <wsdl:part name="parameters" element="tns:getGrupper10" />
+  </wsdl:message>
+  <wsdl:message name="getGrupper10SoapOut">
+    <wsdl:part name="parameters" element="tns:getGrupper10Response" />
+  </wsdl:message>
+  <wsdl:message name="getShowBlackTvWEBSoapIn">
+    <wsdl:part name="parameters" element="tns:getShowBlackTvWEB" />
+  </wsdl:message>
+  <wsdl:message name="getShowBlackTvWEBSoapOut">
+    <wsdl:part name="parameters" element="tns:getShowBlackTvWEBResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceBlackSoap">
+    <wsdl:operation name="Inloggning">
+      <wsdl:input message="tns:InloggningSoapIn" />
+      <wsdl:output message="tns:InloggningSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SkickaEpost">
+      <wsdl:input message="tns:SkickaEpostSoapIn" />
+      <wsdl:output message="tns:SkickaEpostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HelloUser">
+      <wsdl:input message="tns:HelloUserSoapIn" />
+      <wsdl:output message="tns:HelloUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTV">
+      <wsdl:input message="tns:getTVSoapIn" />
+      <wsdl:output message="tns:getTVSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getGrupper">
+      <wsdl:input message="tns:getGrupperSoapIn" />
+      <wsdl:output message="tns:getGrupperSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="nyBlackTV">
+      <wsdl:input message="tns:nyBlackTVSoapIn" />
+      <wsdl:output message="tns:nyBlackTVSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBlackTV">
+      <wsdl:input message="tns:UpdateBlackTVSoapIn" />
+      <wsdl:output message="tns:UpdateBlackTVSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RaderaBlackTV">
+      <wsdl:input message="tns:RaderaBlackTVSoapIn" />
+      <wsdl:output message="tns:RaderaBlackTVSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RaderaGrupp">
+      <wsdl:input message="tns:RaderaGruppSoapIn" />
+      <wsdl:output message="tns:RaderaGruppSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NyGrupp">
+      <wsdl:input message="tns:NyGruppSoapIn" />
+      <wsdl:output message="tns:NyGruppSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditGrupp">
+      <wsdl:input message="tns:EditGruppSoapIn" />
+      <wsdl:output message="tns:EditGruppSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTVjson">
+      <wsdl:input message="tns:getTVjsonSoapIn" />
+      <wsdl:output message="tns:getTVjsonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="uppdateraKontakt">
+      <wsdl:input message="tns:uppdateraKontaktSoapIn" />
+      <wsdl:output message="tns:uppdateraKontaktSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getKontakt">
+      <wsdl:input message="tns:getKontaktSoapIn" />
+      <wsdl:output message="tns:getKontaktSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getShowBlackTv">
+      <wsdl:input message="tns:getShowBlackTvSoapIn" />
+      <wsdl:output message="tns:getShowBlackTvSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="loggaIn">
+      <wsdl:input message="tns:loggaInSoapIn" />
+      <wsdl:output message="tns:loggaInSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getGrupper10">
+      <wsdl:input message="tns:getGrupper10SoapIn" />
+      <wsdl:output message="tns:getGrupper10SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getShowBlackTvWEB">
+      <wsdl:input message="tns:getShowBlackTvWEBSoapIn" />
+      <wsdl:output message="tns:getShowBlackTvWEBSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceBlackSoap" type="tns:ServiceBlackSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Inloggning">
+      <soap:operation soapAction="http://tempuri.org/Inloggning" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SkickaEpost">
+      <soap:operation soapAction="http://tempuri.org/SkickaEpost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloUser">
+      <soap:operation soapAction="http://tempuri.org/HelloUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTV">
+      <soap:operation soapAction="http://tempuri.org/getTV" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGrupper">
+      <soap:operation soapAction="http://tempuri.org/getGrupper" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="nyBlackTV">
+      <soap:operation soapAction="http://tempuri.org/nyBlackTV" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBlackTV">
+      <soap:operation soapAction="http://tempuri.org/UpdateBlackTV" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RaderaBlackTV">
+      <soap:operation soapAction="http://tempuri.org/RaderaBlackTV" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RaderaGrupp">
+      <soap:operation soapAction="http://tempuri.org/RaderaGrupp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NyGrupp">
+      <soap:operation soapAction="http://tempuri.org/NyGrupp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditGrupp">
+      <soap:operation soapAction="http://tempuri.org/EditGrupp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTVjson">
+      <soap:operation soapAction="http://tempuri.org/getTVjson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uppdateraKontakt">
+      <soap:operation soapAction="http://tempuri.org/uppdateraKontakt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getKontakt">
+      <soap:operation soapAction="http://tempuri.org/getKontakt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getShowBlackTv">
+      <soap:operation soapAction="http://tempuri.org/getShowBlackTv" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loggaIn">
+      <soap:operation soapAction="http://tempuri.org/loggaIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGrupper10">
+      <soap:operation soapAction="http://tempuri.org/getGrupper10" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getShowBlackTvWEB">
+      <soap:operation soapAction="http://tempuri.org/getShowBlackTvWEB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceBlackSoap12" type="tns:ServiceBlackSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Inloggning">
+      <soap12:operation soapAction="http://tempuri.org/Inloggning" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SkickaEpost">
+      <soap12:operation soapAction="http://tempuri.org/SkickaEpost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloUser">
+      <soap12:operation soapAction="http://tempuri.org/HelloUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTV">
+      <soap12:operation soapAction="http://tempuri.org/getTV" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGrupper">
+      <soap12:operation soapAction="http://tempuri.org/getGrupper" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="nyBlackTV">
+      <soap12:operation soapAction="http://tempuri.org/nyBlackTV" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBlackTV">
+      <soap12:operation soapAction="http://tempuri.org/UpdateBlackTV" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RaderaBlackTV">
+      <soap12:operation soapAction="http://tempuri.org/RaderaBlackTV" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RaderaGrupp">
+      <soap12:operation soapAction="http://tempuri.org/RaderaGrupp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NyGrupp">
+      <soap12:operation soapAction="http://tempuri.org/NyGrupp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditGrupp">
+      <soap12:operation soapAction="http://tempuri.org/EditGrupp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTVjson">
+      <soap12:operation soapAction="http://tempuri.org/getTVjson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uppdateraKontakt">
+      <soap12:operation soapAction="http://tempuri.org/uppdateraKontakt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getKontakt">
+      <soap12:operation soapAction="http://tempuri.org/getKontakt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getShowBlackTv">
+      <soap12:operation soapAction="http://tempuri.org/getShowBlackTv" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loggaIn">
+      <soap12:operation soapAction="http://tempuri.org/loggaIn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGrupper10">
+      <soap12:operation soapAction="http://tempuri.org/getGrupper10" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getShowBlackTvWEB">
+      <soap12:operation soapAction="http://tempuri.org/getShowBlackTvWEB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceBlack">
+    <wsdl:port name="ServiceBlackSoap" binding="tns:ServiceBlackSoap">
+      <soap:address location="http://blacktv.se/ServiceBlack.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceBlackSoap12" binding="tns:ServiceBlackSoap12">
+      <soap12:address location="http://blacktv.se/ServiceBlack.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
